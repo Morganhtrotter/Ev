@@ -8,7 +8,7 @@ import Hitting from './HittingComponent';
 import Results from './ResultsComponent';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { postComment, fetchDishes, fetchComments, fetchPromos, fetchLeaders, postFeedback } from '../redux/ActionCreators';
+import { postComment, postDish, fetchDishes, fetchComments, fetchPromos, fetchLeaders, postFeedback } from '../redux/ActionCreators';
 import { actions } from 'react-redux-form';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
@@ -23,6 +23,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => ({
 	postComment: (dishId, rating, author, comment) => dispatch(postComment(dishId, rating, author, comment)),
+	postDish: (dishId, rating, author, comment) => dispatch(postDish(dishId, rating, author, comment)),
 	fetchDishes: () => {dispatch(fetchDishes())},
 	resetFeedbackForm: () => { dispatch(actions.reset('feedback'))},
 	fetchComments: () => {dispatch(fetchComments())},
@@ -47,7 +48,7 @@ class Main extends Component {
 
 		const AboutPage = () => {
 			return(
-				<About leaders={this.props.leaders} />
+				<About postDish={this.props.postDish} />
 			);
 		}
 
@@ -62,7 +63,7 @@ class Main extends Component {
 			    		<Route exact path="/throwing" component={() => <Throwing postComment={this.props.postComment}/>} />
 			    		<Route exact path="/fielding" component={() => <Fielding postComment={this.props.postComment}/>} />
 			    		<Route exact path="/hitting" component={() => <Hitting postComment={this.props.postComment}/>} />
-			    		<Route exact path="/results" component={() => <Results comments={this.props.comments.comments}/>} />
+			    		<Route exact path="/results" component={() => <Results comments={this.props.comments.comments} dishes={this.props.dishes.dishes}/>} />
 			    		<Redirect to="/enter" />
 			    	</Switch>
 			    </CSSTransition>

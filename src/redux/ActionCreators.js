@@ -80,6 +80,43 @@ export const addDishes = (dishes) => ({
 	payload: dishes
 });
 
+export const postDish = (dishId, rating, author, comment) => (dispatch) => {
+	const newDish = {
+		dishId: dishId,
+		rating: rating,
+		author: author,
+		comment: comment
+	}
+	newDish.date = new Date().toISOString();
+
+	return fetch(baseUrl + 'dishes', {
+		method: 'POST',
+		body: JSON.stringify(newDish),
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		credentials: 'same-origin'
+	})
+		.then(response => {
+			if (response.ok) {
+				return response;
+			}
+			else {
+				var error = new Error('Error ' + response.status + ': ' + response.statusText);
+				error.response = response;
+				throw error;
+			}
+		},
+		error => {
+			var errmess = new Error(error.message);
+			throw errmess;
+		})
+		.then(response => response.json())
+		.then(response => dispatch(addDishes(response)))
+		.catch(error => { console.log('Post dishes ', error.message);
+			alert('Your comment could not be posted\nError: ' + error.message);});
+};
+
 export const fetchComments = () => (dispatch) => {
 	return fetch(baseUrl + 'comments')
 		.then(response => {
