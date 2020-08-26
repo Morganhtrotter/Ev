@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Label, Col, Row, Button } from 'reactstrap';
-import { Control, Form, Errors } from 'react-redux-form';
+import { Control, LocalForm, Errors } from 'react-redux-form';
 import { Link } from 'react-router-dom';
 
 class Throwing extends Component {
@@ -20,7 +20,7 @@ class Throwing extends Component {
 			<div className="container">
 	            <div className="col-12 col-md-9 pt-3">
 	                <h4>Throwing Evaluation</h4>
-	                <Form model="throwingForm" onSubmit={(values) => this.handleSubmit(values)}>
+	                <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
 	                    <Row className="form-group">
 	                        <Label htmlFor="armaction" md={2}>Arm Action</Label>
 	                        <Col md={10}>
@@ -91,7 +91,7 @@ class Throwing extends Component {
 	                            </Link>
 	                        </Col>
 	                    </Row>
-	                </Form>
+	                </LocalForm>
 	            </div>
 	        </div>
 	    );

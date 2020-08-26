@@ -59,10 +59,10 @@ class Main extends Component {
 			    		<Route path="/enter" component={() => <Enter />} />
 			    		<Route exact path="/personal" component={AboutPage} />
 			    		<Route exact path="/menu" component={() => <Menu />} />
-			    		<Route exact path="/throwing" component={() => <Throwing />} />
-			    		<Route exact path="/fielding" component={() => <Fielding />} />
-			    		<Route exact path="/Hitting" component={() => <Hitting />} />
-			    		<Route exact path="/Results" component={() => <Results />} />
+			    		<Route exact path="/throwing" component={() => <Throwing postComment={this.props.postComment}/>} />
+			    		<Route exact path="/fielding" component={() => <Fielding postComment={this.props.postComment}/>} />
+			    		<Route exact path="/hitting" component={() => <Hitting postComment={this.props.postComment}/>} />
+			    		<Route exact path="/results" component={() => <Results comments={this.props.comments.comments}/>} />
 			    		<Redirect to="/enter" />
 			    	</Switch>
 			    </CSSTransition>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Label, Col, Row, Button } from 'reactstrap';
-import { Control, Form, Errors } from 'react-redux-form';
+import { Control, LocalForm, Errors } from 'react-redux-form';
 import { Link } from 'react-router-dom';
 
 class Fielding extends Component {
@@ -20,7 +20,7 @@ class Fielding extends Component {
 			<div className="container">
 	            <div className="col-12 col-md-9 pt-3">
 	                <h4>Fielding Evaluation</h4>
-	                <Form model="fieldingForm" onSubmit={(values) => this.handleSubmit(values)}>
+	                <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
 	                    <Row className="form-group">
 	                        <Label htmlFor="softhands" md={2}>Soft Hands</Label>
 	                        <Col md={10}>
@@ -91,7 +91,7 @@ class Fielding extends Component {
 	                            </Link>
 	                        </Col>
 	                    </Row>
-	                </Form>
+	                </LocalForm>
 	            </div>
 	        </div>
 	    );
