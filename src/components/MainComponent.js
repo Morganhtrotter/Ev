@@ -10,7 +10,6 @@ import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { postComment, postDish, fetchDishes, fetchComments, fetchPromos, fetchLeaders, postFeedback } from '../redux/ActionCreators';
 import { actions } from 'react-redux-form';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 const mapStateToProps = state => {
 	return {
@@ -22,7 +21,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-	postComment: (dishId, rating, author, comment) => dispatch(postComment(dishId, rating, author, comment)),
+	postComment: (category, first, second, third) => dispatch(postComment(category, first, second, third)),
 	postDish: (dishId, rating, author, comment) => dispatch(postDish(dishId, rating, author, comment)),
 	fetchDishes: () => {dispatch(fetchDishes())},
 	resetFeedbackForm: () => { dispatch(actions.reset('feedback'))},
@@ -54,20 +53,19 @@ class Main extends Component {
 
 		return (
 	    <div>
-    		<TransitionGroup>
-    			<CSSTransition key={this.props.location.key} classNames="page" timeout={300}>
-			    	<Switch>
-			    		<Route path="/enter" component={() => <Enter />} />
-			    		<Route exact path="/personal" component={AboutPage} />
-			    		<Route exact path="/menu" component={() => <Menu />} />
-			    		<Route exact path="/throwing" component={() => <Throwing postComment={this.props.postComment}/>} />
-			    		<Route exact path="/fielding" component={() => <Fielding postComment={this.props.postComment}/>} />
-			    		<Route exact path="/hitting" component={() => <Hitting postComment={this.props.postComment}/>} />
-			    		<Route exact path="/results" component={() => <Results comments={this.props.comments.comments} dishes={this.props.dishes.dishes}/>} />
-			    		<Redirect to="/enter" />
-			    	</Switch>
-			    </CSSTransition>
-	    	</TransitionGroup>
+	    	<Switch>
+	    		<Route path="/enter" component={() => <Enter />} />
+	    		<Route exact path="/personal" component={AboutPage} />
+	    		<Route exact path="/menu" component={() => <Menu />} />
+	    		<Route exact path="/throwing" component={() => <Throwing postComment={this.props.postComment}/>} />
+	    		<Route exact path="/fielding" component={() => <Fielding postComment={this.props.postComment}/>} />
+	    		<Route exact path="/hitting" component={() => <Hitting postComment={this.props.postComment}/>} />
+	    		<Route exact path="/results" component={() => <Results hitting={this.props.comments.comments.filter((comments) => comments.category === "Hitting")}
+	    																fielding={this.props.comments.comments.filter((comments) => comments.category === "Fielding")}
+	    																throwing={this.props.comments.comments.filter((comments) => comments.category === "Throwing")}
+	    																dishes={this.props.dishes.dishes}/>} />
+	    		<Redirect to="/enter" />
+	    	</Switch>
 	    </div>
   	);
 	}

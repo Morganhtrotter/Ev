@@ -12,7 +12,7 @@ class Results extends Component {
       <div className="container">
         <div className="col-12 col-md-9 pt-3">
           <h4>Breakdown</h4>
-          <h1>{console.log(this.props.comments)}</h1>
+          <h1>{console.log(this.props.hitting)}</h1>
           <h1>{console.log(this.props.dishes)}</h1>
           <h3>Overall</h3>
           <h3>Fielding</h3>
