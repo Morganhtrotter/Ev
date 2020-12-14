@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from 'reactstrap';
@@ -39,13 +40,12 @@ class Results extends Component {
     }
 
     return(
-
       <div className="container">
         <div className="col-12 col-md-9 pt-3">
           <h4>Breakdown</h4>
           <h1>{console.log(this.props.fielding)}</h1>
-          <h1>{console.log(this.props.dishes)}</h1>
           <h3>Overall: {overall}</h3>
+          <h1>{console.log(this.props.dishes)}</h1>
           <h2>Fielding Overall: {fieldingOverall}</h2>
           <p>Soft Hands: {fieldingFirst}</p>
           <p>Footwork: {fieldingSecond}</p>

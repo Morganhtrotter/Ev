@@ -3,6 +3,10 @@ import { Label, Col, Row, Button } from 'reactstrap';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 import { Link } from 'react-router-dom';
 
+const required = (val) => val && val.length;
+const isNumber = (val) => !isNaN(Number(val));
+const isValidNumber = (val) => (val >= 20) && (val <= 80);
+
 class Hitting extends Component {
     constructor(props) {
         super(props);
@@ -24,54 +28,60 @@ class Hitting extends Component {
 	                    <Row className="form-group">
 	                        <Label htmlFor="contact" md={2}>Contact</Label>
 	                        <Col md={10}>
-	                            <Control.select model=".contact" id="contact" name="contact"
-	                                className="form-control">
-	                                <option value="1">1</option>
-	                                <option value="2">2</option>
-	                                <option value="3">3</option>
-	                                <option value="4">4</option>
-	                                <option value="5">5</option>
-	                            </Control.select>
+	                            <Control.text model=".contact" id="contact" name="contact"
+	                                placeholder="20-80"
+	                                className="form-control" validators={{
+                                    required, isNumber, isValidNumber
+                                	}}/>
 	                            <Errors
 	                                className="text-danger"
 	                                model=".contact"
 	                                show="touched"
+	                                messages={{
+                                    required: 'Required ',
+                                    isNumber: 'Must be a number ',
+                                    isValidNumber: 'Must be between 20 and 80'
+                                	}}
 	                            />
 	                        </Col>
 	                    </Row>
 	                    <Row className="form-group">
 	                        <Label htmlFor="power" md={2}>Power</Label>
 	                        <Col md={10}>
-	                            <Control.select model=".power" id="power" name="power"
-	                                className="form-control">
-	                                <option value="1">1</option>
-	                                <option value="2">2</option>
-	                                <option value="3">3</option>
-	                                <option value="4">4</option>
-	                                <option value="5">5</option>
-	                            </Control.select>
+	                            <Control.text model=".power" id="power" name="power"
+	                                placeholder="20-80"
+	                                className="form-control" validators={{
+                                    required, isNumber, isValidNumber
+                                	}}/>
 	                            <Errors
 	                                className="text-danger"
 	                                model=".power"
 	                                show="touched"
+	                                messages={{
+                                    required: 'Required ',
+                                    isNumber: 'Must be a number ',
+                                    isValidNumber: 'Must be between 20 and 80'
+                                	}}
 	                            />
 	                        </Col>
 	                    </Row>
 	                    <Row className="form-group">
 	                        <Label htmlFor="hittingBalance" md={2}>Balance</Label>
 	                        <Col md={10}>
-	                            <Control.select model=".hittingBalance" id="hittingBalance" name="hittingBalance"
-	                                className="form-control">
-	                                <option value="1">1</option>
-	                                <option value="2">2</option>
-	                                <option value="3">3</option>
-	                                <option value="4">4</option>
-	                                <option value="5">5</option>
-	                            </Control.select>
+	                            <Control.text model=".hittingBalance" id="hittingBalance" name="hittingBalance"
+	                                placeholder="20-80"
+	                                className="form-control" validators={{
+                                    required, isNumber, isValidNumber
+                                	}}/>
 	                            <Errors
 	                                className="text-danger"
 	                                model=".hittingBalance"
 	                                show="touched"
+	                                messages={{
+                                    required: 'Required ',
+                                    isNumber: 'Must be a number ',
+                                    isValidNumber: 'Must be between 20 and 80'
+                                	}}
 	                            />
 	                        </Col>
 	                    </Row>

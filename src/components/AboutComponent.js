@@ -42,9 +42,9 @@ class About extends Component {
                                 model=".firstname"
                                 show="touched"
                                 messages={{
-                                    required: 'Required',
-                                    minLength: 'Must be greater than two characters',
-                                    maxLength: 'Must be 15 characters or less'
+                                    required: 'Required ',
+                                    minLength: 'Must be greater than two characters ',
+                                    maxLength: 'Must be 15 characters or less '
                                 }}
                             />
                         </Col>
@@ -64,9 +64,9 @@ class About extends Component {
                                 model=".lastname"
                                 show="touched"
                                 messages={{
-                                    required: 'Required',
-                                    minLength: 'Must be greater than two characters',
-                                    maxLength: 'Must be 15 characters or less'
+                                    required: 'Required ',
+                                    minLength: 'Must be greater than two characters ',
+                                    maxLength: 'Must be 15 characters or less '
                                 }}
                             />
                         </Col>
@@ -86,10 +86,10 @@ class About extends Component {
                                 model=".telnum"
                                 show="touched"
                                 messages={{
-                                    required: 'Required',
-                                    minLength: 'Must be greater than two numbers',
-                                    maxLength: 'Must be 15 numbers or less',
-                                    isNumber: 'Must be a number'
+                                    required: 'Required ',
+                                    minLength: 'Must be greater than two numbers ',
+                                    maxLength: 'Must be 15 numbers or less ',
+                                    isNumber: 'Must be a number '
                                 }}
                             />
                         </Col>
@@ -109,8 +109,8 @@ class About extends Component {
                                 model=".email"
                                 show="touched"
                                 messages={{
-                                    required: 'Required',
-                                    validEmail: 'Invalid Email Address'
+                                    required: 'Required ',
+                                    validEmail: 'Invalid Email Address '
                                 }}
                             />
                         </Col>
@@ -130,8 +130,8 @@ class About extends Component {
                                 model=".age"
                                 show="touched"
                                 messages={{
-                                    required: 'Required',
-                                    isNumber: 'Must be a number'
+                                    required: 'Required ',
+                                    isNumber: 'Must be a number '
                                 }}
                             />
                         </Col>
@@ -139,13 +139,23 @@ class About extends Component {
                     <Row className="form-group">
                         <Label htmlFor="age" md={2}>Primary Position</Label>
                         <Col md={10}>
-                            <Control.text model=".primary" id="primary" name="primary"
+                            <Control.select model=".primary" id="primary" name="primary"
                                 placeholder="Primary position"
                                 className="form-control"
                                 validators={{
                                     required
-                                }}
-                                />
+                                }}>
+                                <option value="catcher">Catcher</option>
+                                <option value="pitcher">Pitcher</option>
+                                <option value="firstbase">First Base</option>
+                                <option value="secondbase">Second Base</option>
+                                <option value="thirdbase">Third Base</option>
+                                <option value="shortstop">Shortstop</option>
+                                <option value="leftfield">Left Field</option>
+                                <option value="centerfield">Center Field</option>
+                                <option value="rightfield">Right Field</option>
+                                <option value="noprimary">No Primary</option>
+                            </Control.select>
                             <Errors
                                 className="text-danger"
                                 model=".primary"
@@ -159,12 +169,22 @@ class About extends Component {
                     <Row className="form-group">
                         <Label htmlFor="age" md={2}>Secondary Position</Label>
                         <Col md={10}>
-                            <Control.text model=".secondary" id="secondary" name="secondary"
+                            <Control.select model=".secondary" id="secondary" name="secondary"
                                 placeholder="Secondary Position"
                                 className="form-control"
                                 validators={{
-                                }}
-                                />
+                                }}>
+                                <option value="catcher">Catcher</option>
+                                <option value="pitcher">Pitcher</option>
+                                <option value="firstbase">First Base</option>
+                                <option value="secondbase">Second Base</option>
+                                <option value="thirdbase">Third Base</option>
+                                <option value="shortstop">Shortstop</option>
+                                <option value="leftfield">Left Field</option>
+                                <option value="centerfield">Center Field</option>
+                                <option value="rightfield">Right Field</option>
+                                <option value="nosecondary">No Secondary</option>
+                            </Control.select>
                             <Errors
                                 className="text-danger"
                                 model=".secondary"
