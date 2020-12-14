@@ -222,15 +222,15 @@ export const addLeaders = (leaders) => ({
 	payload: leaders
 });
 
-export const postFeedback = (firstname, lastname, telnum, email, agree, contactType, message) => (dispatch) => {
+export const postFeedback = (firstname, lastname, telnum, email, age, primary, secondary) => (dispatch) => {
 	const newFeedback = {
 		firstname: firstname,
 		lastname: lastname,
 		telnum: telnum,
 		email: email,
-		agree: agree,
-		contactType: contactType,
-		message: message
+		age: age,
+		primary: primary,
+		secondary: secondary
 	}
 	newFeedback.date = new Date().toISOString();
 

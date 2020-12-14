@@ -18,7 +18,7 @@ class About extends Component {
 
     handleSubmit(values) {
         alert("Current State is: " + JSON.stringify(values));
-        this.props.postDish(values.firstname, values.lastname, values.telnum, values.email);
+        this.props.postFeedback(values.firstname, values.lastname, values.telnum, values.email, values.age, values.primary, values.secondary);
     }
 
     render() {

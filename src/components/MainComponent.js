@@ -47,7 +47,7 @@ class Main extends Component {
 
 		const AboutPage = () => {
 			return(
-				<About postDish={this.props.postDish} />
+				<About postFeedback={this.props.postFeedback} />
 			);
 		}
 
