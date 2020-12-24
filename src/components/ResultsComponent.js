@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from 'reactstrap';
@@ -66,30 +65,30 @@ class Results extends Component {
     return(
       <div className="container">
         <div className="col-12 col-md-9 pt-3">
-          <h4>Breakdown</h4>
-          <h3>Overall: {overall}</h3>
-          <h2>Fielding Overall: {fieldingOverall}</h2>
+          <h1>Breakdown</h1>
+          <h2>Overall: {overall}</h2>
+          <h3>Fielding Overall: {fieldingOverall}</h3>
           <p>Based on your score of {fieldingOverall}, you have been placed in fielding level {fieldingLevel}.</p>
-          <div>{(fieldingLevel == 1) && <Button href="https://www.tadball.com/">Level 1 Curriculum</Button>}</div>
-          <div>{(fieldingLevel == 2) && <Button href="https://www.tadball.com/">Level 2 Curriculum</Button>}</div>
-          <div>{(fieldingLevel == 3) && <Button href="https://www.tadball.com/">Level 3 Curriculum</Button>}</div>
-          <p>Soft Hands: {fieldingFirst}</p>
+          <div>{(fieldingLevel == 1) && <Button href="https://www.tadball.com/post/throwing-fundamentals-throwing-clinic-session-i-recap" color="primary">Level 1 Curriculum</Button>}</div>
+          <div>{(fieldingLevel == 2) && <Button href="https://www.tadball.com/" color="primary">Level 2 Curriculum</Button>}</div>
+          <div>{(fieldingLevel == 3) && <Button href="https://www.tadball.com/" color="primary">Level 3 Curriculum</Button>}</div>
+          <p className="pt-3">Soft Hands: {fieldingFirst}</p>
           <p>Footwork: {fieldingSecond}</p>
           <p>Backhand: {fieldingThird}</p>
-          <h2>Throwing Overall: {throwingOverall}</h2>
+          <h3>Throwing Overall: {throwingOverall}</h3>
           <p>Based on your score of {throwingOverall}, you have been placed in throwing level {throwingLevel}.</p>
-          <div>{(throwingLevel == 1) && <Button href="https://www.tadball.com/">Level 1 Curriculum</Button>}</div>
-          <div>{(throwingLevel == 2) && <Button href="https://www.tadball.com/">Level 2 Curriculum</Button>}</div>
-          <div>{(throwingLevel == 3) && <Button href="https://www.tadball.com/">Level 3 Curriculum</Button>}</div>
-          <p>Arm Action: {throwingFirst}</p>
+          <div>{(throwingLevel == 1) && <Button href="https://www.tadball.com/" color="primary">Level 1 Curriculum</Button>}</div>
+          <div>{(throwingLevel == 2) && <Button href="https://www.tadball.com/" color="primary">Level 2 Curriculum</Button>}</div>
+          <div>{(throwingLevel == 3) && <Button href="https://www.tadball.com/" color="primary">Level 3 Curriculum</Button>}</div>
+          <p className="pt-3">Arm Action: {throwingFirst}</p>
           <p>Footwork: {throwingSecond}</p>
           <p>Balance: {throwingThird}</p>
-          <h2>Hitting Overall: {hittingOverall}</h2>
+          <h3>Hitting Overall: {hittingOverall}</h3>
           <p>Based on your score of {hittingOverall}, you have been placed in hitting level {hittingLevel}.</p>
-          <div>{(hittingLevel == 1) && <Button href="https://www.tadball.com/">Level 1 Curriculum</Button>}</div>
-          <div>{(hittingLevel == 2) && <Button href="https://www.tadball.com/">Level 2 Curriculum</Button>}</div>
-          <div>{(hittingLevel == 3) && <Button href="https://www.tadball.com/">Level 3 Curriculum</Button>}</div>
-          <p>Contact: {hittingFirst}</p>
+          <div>{(hittingLevel == 1) && <Button href="https://www.tadball.com/post/hitting-101" color="primary">Level 1 Curriculum</Button>}</div>
+          <div>{(hittingLevel == 2) && <Button href="https://www.tadball.com/" color="primary">Level 2 Curriculum</Button>}</div>
+          <div>{(hittingLevel == 3) && <Button href="https://www.tadball.com/" color="primary">Level 3 Curriculum</Button>}</div>
+          <p className="pt-3">Contact: {hittingFirst}</p>
           <p>Power: {hittingSecond}</p>
           <p>Balance: {hittingThird}</p>
         </div>

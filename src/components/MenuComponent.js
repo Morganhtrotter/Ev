@@ -9,28 +9,28 @@ class Menu extends Component {
         <div className="col-12 col-md-9 pt-3">
           <h4>Choose Category</h4>
           <Link to="/fielding">
-            <Button className="button">
+            <Button className="button" color="primary">
               Fielding
             </Button>
           </Link>
         </div>
         <div className="col-12 col-md-9 pt-3">
           <Link to="/throwing">
-            <Button className="button">
+            <Button className="button" color="primary">
               Throwing
             </Button>
           </Link>
         </div>
         <div className="col-12 col-md-9 pt-3">
           <Link to="/hitting">
-            <Button className="button">
+            <Button className="button" color="primary">
               Hitting
             </Button>
           </Link>
         </div>
         <div className="col-12 col-md-9 pt-3">
           <Link to="/results">
-            <Button className="button">
+            <Button className="button" color="primary">
               Results
             </Button>
           </Link>

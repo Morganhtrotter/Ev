@@ -12,7 +12,7 @@ class Enter extends Component {
 						<br />
 						<br />
 						<Link className="mx-auto" to="/personal">
-							<Button id="button" className="button" outline>
+							<Button id="button" className="button" color="primary">
 								Start
 							</Button>
 						</Link>
