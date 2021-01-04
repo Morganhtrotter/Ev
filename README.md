@@ -39,22 +39,18 @@ Then view the results on the breakdown page.
 
 This project uses react-redux to POST the players' data to a json-server, and then subsequently FETCHES that same data to be displayed on the breakdown page.
 
-		export const postFeedback = (firstname, lastname, telnum, 
-			email, age, primary, secondary) => (dispatch) => {
-			const newFeedback = {
-				firstname: firstname,
-				lastname: lastname,
-				telnum: telnum,
-				email: email,
-				age: age,
-				primary: primary,
-				secondary: secondary
+		export const postComment = (category, rating, author, comment) => (dispatch) => {
+			const newComment = {
+				category: category,
+				rating: rating,
+				author: author,
+				comment: comment
 			}
-			newFeedback.date = new Date().toISOString();
+			newComment.date = new Date().toISOString();
 
-			return fetch(baseUrl + 'feedback', {
+			return fetch(baseUrl + 'comments', {
 				method: 'POST',
-				body: JSON.stringify(newFeedback),
+				body: JSON.stringify(newComment),
 				headers: {
 					'Content-Type': 'application/json'
 				},
@@ -75,6 +71,15 @@ This project uses react-redux to POST the players' data to a json-server, and th
 					throw errmess;
 				})
 				.then(response => response.json())
-				.catch(error => { console.log('Post feedback ', error.message);
-					alert('Your feedback could not be posted\nError: ' + error.message);});
+				.then(response => dispatch(addComment(response)))
+				.catch(error => { console.log('Post comments ', error.message);
+					alert('Your comment could not be posted\nError: ' + error.message);});
 		};
+
+		<Route exact path="/throwing" component={() => <Throwing postComment={this.props.postComment}/>} />
+	    		<Route exact path="/fielding" component={() => <Fielding postComment={this.props.postComment}/>} />
+	    		<Route exact path="/hitting" component={() => <Hitting postComment={this.props.postComment}/>} />
+	    		<Route exact path="/results" component={() => <Results hitting={this.props.comments.comments.filter((comments) => comments.category === "Hitting")}
+	    									fielding={this.props.comments.comments.filter((comments) => comments.category === "Fielding")}
+	    									throwing={this.props.comments.comments.filter((comments) => comments.category === "Throwing")}
+	    									dishes={this.props.dishes.dishes}/>} />
