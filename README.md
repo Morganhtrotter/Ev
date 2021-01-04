@@ -76,6 +76,7 @@ This project uses react-redux to POST the players' data to a json-server, and th
 					alert('Your comment could not be posted\nError: ' + error.message);});
 		};
 
+
 		<Route exact path="/throwing" component={() => <Throwing postComment={this.props.postComment}/>} />
 	    		<Route exact path="/fielding" component={() => <Fielding postComment={this.props.postComment}/>} />
 	    		<Route exact path="/hitting" component={() => <Hitting postComment={this.props.postComment}/>} />
