@@ -8,26 +8,26 @@ Start by entering the players information on the first page:
 
 ![Alt Text](https://github.com/Morganhtrotter/Ev/blob/master/public/assets/images/PlayerInfo.gif)
 
-This is a controlled form, built using the react-redux-form library.
+This is a controlled form, built using the React Redux Form library.
 
 		<Control.text model=".firstname" id="firstname"
-		name="firstname"
-            placeholder="First Name"
-            className="form-control"
-            validators={{
-                required, minLength: minLength(3), maxLength: maxLength(15)
-            }}
-            />
-        <Errors
-            className="text-danger"
-            model=".firstname"
-            show="touched"
-            messages={{
-                required: 'Required ',
-                minLength: 'Must be greater than two characters ',
-                maxLength: 'Must be 15 characters or less '
-            }}
-        />
+			name="firstname"
+		    placeholder="First Name"
+		    className="form-control"
+		    validators={{
+			required, minLength: minLength(3), maxLength: maxLength(15)
+		    }}
+		    />
+		<Errors
+		    className="text-danger"
+		    model=".firstname"
+		    show="touched"
+		    messages={{
+			required: 'Required ',
+			minLength: 'Must be greater than two characters ',
+			maxLength: 'Must be 15 characters or less '
+		    }}
+		/>
 
 Once the players' information is entered, choose one of the three area's to evaluate. Enter numbers between 20 and 80 for each sub-category.
 
@@ -39,7 +39,7 @@ Then view the results on the breakdown page.
 
 ![Alt Text](https://github.com/Morganhtrotter/Ev/blob/master/public/assets/images/Breakdown.gif)
 
-This project uses react-redux to POST the players' data to a json-server, and then subsequently FETCHES that same data to be displayed on the breakdown page.
+As mentioned above, this project uses React/Redux to Post the players' data to a JSON server, and then subsequently Fetches that same data to be displayed on the breakdown page.
 
 		<Route exact path="/throwing" component={() => <Throwing postComment={this.props.postComment}/>} />
 		<Route exact path="/fielding" component={() => <Fielding postComment={this.props.postComment}/>} />
