@@ -1,3 +1,5 @@
+This application uses Redux Thunk, Fetch/Post and the REST API to send and retreive clients curated data with a JSON server. Both of the forms for player information and individual skill assessment implement the Form, Errors and Control classes of the React Redux Form library as well as unique validators to create controlled forms. This site also uses the Col and Row Reactstrap classes to optimize use of the application for mobile.
+
 What is this?
 
 Ev is an application to help baseball coaches accurately evaluate their players' skills. It uses the same 20-80 grading scale used by professional scouts, and displays overall averages and indivual skill grades on the breakdown page.
