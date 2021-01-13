@@ -4,8 +4,11 @@ import { HashRouter } from 'react-router-dom';
 import './App.css';
 import { Provider } from 'react-redux';
 import { ConfigureStore } from './redux/configureStore.js';
+import * as d3 from "d3";
 
 const store = ConfigureStore();
+
+d3.select("p").style("color", "black");
 
 class App extends Component {
 

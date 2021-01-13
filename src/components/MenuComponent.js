@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from 'reactstrap';
+import BarChart from './BarChart.js';
 
 class Menu extends Component {
   render() {
     return(
       <div className="container">
+      <div id="bartest">
+        <BarChart />
+      </div>
         <div className="col-12 col-md-9 pt-3">
           <h4>Choose Category</h4>
           <Link to="/fielding">
