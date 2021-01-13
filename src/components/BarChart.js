@@ -9,16 +9,16 @@ class BarChart extends Component {
 
   drawChart() {
     const data = [20, 20, 20];
-    const w = 700;
+    const w = 800;
     const h = 250;
-    const widthdata = [80, 80, 80]
+    const widthdata = [80, 80, 80];
+    const interpolateData = [0, 0, 0]
 
     if (this.props.evaluationdata !== undefined) {
 
-	    console.log(this.props.evaluationdata);
-
 	    for(var i = 0; i < 3; i++) {
 	    	data[i] = this.props.evaluationdata[i];
+	    	interpolateData[i] = (this.props.evaluationdata[i] - 20) / 60;
 	    }
 
     }
@@ -36,7 +36,7 @@ class BarChart extends Component {
       .attr("y", (d, i) => i * 70)
       .attr("width", (d, i) => d * 10)
       .attr("height", 65)
-      .attr("fill", "green");    
+      .attr("fill", "gray");    
 
     svg.selectAll("#fieldingchart")
       .data(data)
@@ -46,7 +46,7 @@ class BarChart extends Component {
       .attr("y", (d, i) => i * 70)
       .attr("width", (d, i) => d * 10)
       .attr("height", 65)
-      .attr("fill", "white");
+      .attr("fill", (d, i) => d3.interpolateRdYlGn(interpolateData[i]));
   }
         
   render(){
