@@ -68,7 +68,7 @@ class Results extends Component {
           <h2>Overall: {overall}</h2>
           <h3>Fielding Overall: {fieldingOverall}</h3>
           <div id="fieldingchart">
-            <BarChart evaluationdata={fieldingArray}/>
+            <BarChart fieldingdata={fieldingArray} throwingdata={throwingArray} hittingdata={hittingArray}/>
           </div>
           <p ref="myP">Soft Hands: {fieldingFirst}</p>
           <p>Footwork: {fieldingSecond}</p>
@@ -78,9 +78,6 @@ class Results extends Component {
           <div>{(fieldingLevel === 2) && <Button className="mb-3" href="https://www.tadball.com/" color="primary">Level 2 Curriculum</Button>}</div>
           <div>{(fieldingLevel === 3) && <Button className="mb-3" href="https://www.tadball.com/" color="primary">Level 3 Curriculum</Button>}</div>
           <h3>Throwing Overall: {throwingOverall}</h3>
-          <div id="fieldingchart">
-            <BarChart evaluationdata={throwingArray}/>
-          </div>
           <p>Arm Action: {throwingFirst}</p>
           <p>Footwork: {throwingSecond}</p>
           <p>Balance: {throwingThird}</p>
@@ -89,9 +86,6 @@ class Results extends Component {
           <div>{(throwingLevel === 2) && <Button className="mb-3" href="https://www.tadball.com/" color="primary">Level 2 Curriculum</Button>}</div>
           <div>{(throwingLevel === 3) && <Button className="mb-3" href="https://www.tadball.com/" color="primary">Level 3 Curriculum</Button>}</div>
           <h3>Hitting Overall: {hittingOverall}</h3>
-          <div id="fieldingchart">
-            <BarChart evaluationdata={hittingArray}/>
-          </div>
           <p>Contact: {hittingFirst}</p>
           <p>Power: {hittingSecond}</p>
           <p>Balance: {hittingThird}</p>
