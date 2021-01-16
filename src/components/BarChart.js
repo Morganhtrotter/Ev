@@ -5,7 +5,6 @@ class BarChart extends Component {
 
   componentDidMount() {
     this.drawChart();
-    this.updateChart();
   }
 
   drawChart() {
@@ -73,6 +72,12 @@ class BarChart extends Component {
       .attr("fill", "white")
       .attr("id", "whitebar");
 
+    svg.append("text")
+	   .attr("x", 20)
+	   .attr("y", 40)
+	   .style("fill", "white")
+	   .text("Hello");
+
     svg.on("click", function() {
     	if (arrayIndex === 3) {
     		arrayIndex = 0;
@@ -109,10 +114,6 @@ class BarChart extends Component {
       .attr("height", 65)
       .attr("fill", (d, i) => d3.interpolateRdYlGn(interpolateData[i]));
       */
-  }
-
-  updateChart() {
-
   }
         
   render(){

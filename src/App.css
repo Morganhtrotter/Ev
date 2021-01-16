@@ -79,3 +79,7 @@ img {
 Button {
     margin-top: 10px;
 }
+
+#vizText {
+    color: white;
+}
