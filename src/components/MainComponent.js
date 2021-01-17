@@ -16,7 +16,8 @@ const mapStateToProps = state => {
 		dishes: state.dishes,
 		comments: state.comments,
 		promotions: state.promotions,
-		leaders: state.leaders
+		leaders: state.leaders,
+		feedback: state.feedback
 	}	
 }
 
@@ -59,7 +60,7 @@ class Main extends Component {
 	    		<Route exact path="/results" component={() => <Results hitting={this.props.comments.comments.filter((comments) => comments.category === "Hitting")}
 	    																fielding={this.props.comments.comments.filter((comments) => comments.category === "Fielding")}
 	    																throwing={this.props.comments.comments.filter((comments) => comments.category === "Throwing")}
-	    																dishes={this.props.dishes.dishes}/>} />
+	    																playerInfo={this.props.feedback}/>} />
 	    		<Redirect to="/enter" />
 	    	</Switch>
 	    </div>

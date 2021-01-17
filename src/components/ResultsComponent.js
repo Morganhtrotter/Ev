@@ -57,6 +57,8 @@ class Results extends Component {
       }
       overall = Math.round(((fieldingOverall + throwingOverall + hittingOverall) / 3) * 100) / 100;
     }
+
+    console.log(this.props.playerInfo);
     const fieldingArray = [fieldingFirst, fieldingSecond, fieldingThird];
     const throwingArray = [throwingFirst, throwingSecond, throwingThird];
     const hittingArray = [hittingFirst, hittingSecond, hittingThird];
