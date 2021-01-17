@@ -12,7 +12,7 @@ class BarChart extends Component {
     const throwData = [20, 20, 20];
     const hitData = [20, 20, 20];
     const w = 300;
-    const h = 500;
+    const h = 570;
     const widthdata = [80, 80, 80];
     const redColor = "#a1241b";
     const greenColor = "#0c4703";
@@ -20,6 +20,10 @@ class BarChart extends Component {
     var colorTwo = redColor;
     var colorThree = redColor;
     var colorArray = [colorOne, colorTwo, colorThree];
+    var overallColorArray = [redColor, greenColor];
+    var overallColor = redColor;
+    var fieldOverall = 0;
+    const overallArray = [this.props.overall, 80];
 
     if (this.props.fieldingdata !== undefined) {
 	    for(var i = 0; i < 3; i++) {
@@ -37,6 +41,8 @@ class BarChart extends Component {
       colorArray[0] = colorOne;
       colorArray[1] = colorTwo;
       colorArray[2] = colorThree;
+      fieldOverall = Math.round(((parseInt(fieldData[0]) + parseInt(fieldData[1]) + parseInt(fieldData[2])) / 3) * 100) / 100;
+      overallArray[1] = fieldOverall;
     }
 
     if (this.props.throwingdata !== undefined) {
@@ -56,6 +62,10 @@ class BarChart extends Component {
         "Arm Action: " + throwData[0].toString(), "Footwork: " + throwData[1].toString(), "Balance: " + throwData[2].toString(),
         "Contact: " + hitData[0].toString(), "Power: " + hitData[1].toString(),  "Balance: " + hitData[2].toString()];
     var arrayIndex = 1;
+    if (this.props.overall >= 50) {
+      overallColorArray[0] = greenColor;
+    }
+
     const svg = d3.select("#fieldingchart")
 	    .append("svg")
 	    .attr("width", w)
@@ -66,7 +76,7 @@ class BarChart extends Component {
       .enter()
       .append("rect")
       .attr("x", 0)
-      .attr("y", (d, i) => i * 70)
+      .attr("y", (d, i) => i * 70 + 350)
       .attr("width", (d, i) => d * 3)
       .attr("height", 65)
       .attr("fill", "gray");    
@@ -76,7 +86,7 @@ class BarChart extends Component {
       .enter()
       .append("rect")
       .attr("x", 0)
-      .attr("y", (d, i) => i * 70)
+      .attr("y", (d, i) => i * 70 + 350)
       .attr("width", (d, i) => d * 3)
       .attr("height", 65)
       .attr("fill", (d, i) => colorArray[i])
@@ -87,7 +97,7 @@ class BarChart extends Component {
       .enter()
       .append("rect")
       .attr("x", (d, i) => d * 3 - 5)
-      .attr("y", (d, i) => i * 70)
+      .attr("y", (d, i) => i * 70 + 350)
       .attr("width", 5)
       .attr("height", 65)
       .attr("fill", "white")
@@ -98,7 +108,52 @@ class BarChart extends Component {
       .enter()
       .append("rect")
       .attr("x", 10)
-      .attr("y", (d, i) => i * 70 + 15)
+      .attr("y", (d, i) => i * 70 + 365)
+      .attr("width", 120)
+      .attr("height", 35)
+      .attr("id", "graytextbar")
+      .style("fill", "white")
+      .style("opacity", 0.7);
+
+    svg.selectAll("g")
+      .data([80, 80])
+      .enter()
+      .append("rect")
+      .attr("x", 0)
+      .attr("y", (d, i) => i * 140 + 70)
+      .attr("width", (d, i) => d * 3)
+      .attr("height", 65)
+      .attr("fill", "gray");
+
+    // Overall average rect
+    svg.selectAll("g")
+      .data(overallArray)
+      .enter()
+      .append("rect")
+      .attr("x", 0)
+      .attr("y", (d, i) => (i * 140) + 70)
+      .attr("width", (d, i) => d * 3)
+      .attr("height", 65)
+      .attr("fill", (d, i) => colorArray[i])
+      .attr("id", "overallRect");
+
+    svg.selectAll("g")
+      .data(overallArray)
+      .enter()
+      .append("rect")
+      .attr("x", (d, i) => d * 3 - 5)
+      .attr("y", (d, i) => i * 140 + 70)
+      .attr("width", 5)
+      .attr("height", 65)
+      .attr("fill", "white")
+      .attr("id", "averageWhiteBar");
+
+    svg.selectAll("g")
+      .data(overallArray)
+      .enter()
+      .append("rect")
+      .attr("x", 10)
+      .attr("y", (d, i) => i * 140 + 85)
       .attr("width", 120)
       .attr("height", 35)
       .attr("id", "graytextbar")
@@ -106,8 +161,48 @@ class BarChart extends Component {
       .style("opacity", 0.7);
 
     svg.append("text")
+     .attr("x", 20)
+     .attr("y", 110)
+     .attr("id", "overallText")
+     .style("fill", "black")
+     .style("font-family", "'Oswald', sans-serif")
+     .text("Overall: " + overallArray[0]);
+
+    // Average Text
+    svg.append("text")
+     .attr("x", 20)
+     .attr("y", 250)
+     .attr("id", "averageText")
+     .style("fill", "black")
+     .style("font-family", "'Oswald', sans-serif")
+     .text("Average: " + overallArray[1]);
+
+    svg.append("text")
+     .attr("x", 20)
+     .attr("y", 40)
+     .style("fill", "white")
+     .style("font-family", "'Oswald', sans-serif")
+     .text("Overall: " + this.props.overall);
+
+    svg.append("text")
+     .attr("x", 20)
+     .attr("y", 180)
+     .attr("id", "fieldingAverage")
+     .style("fill", "white")
+     .style("font-family", "'Oswald', sans-serif")
+     .text("Fielding Average: ");
+
+    svg.append("text")
+     .attr("x", 20)
+     .attr("y", 320)
+     .attr("id", "statisticsText")
+     .style("fill", "white")
+     .style("font-family", "'Oswald', sans-serif")
+     .text("Fielding Statistics:");   
+
+    svg.append("text")
 	   .attr("x", 20)
-	   .attr("y", 40)
+	   .attr("y", 390)
      .attr("id", "viztextone")
 	   .style("fill", "black")
      .style("font-family", "'Oswald', sans-serif")
@@ -115,7 +210,7 @@ class BarChart extends Component {
 
     svg.append("text")
      .attr("x", 20)
-     .attr("y", 110)
+     .attr("y", 460)
      .attr("id", "viztexttwo")
      .style("fill", "black")
      .style("font-family", "'Oswald', sans-serif")
@@ -123,7 +218,7 @@ class BarChart extends Component {
 
     svg.append("text")
      .attr("x", 20)
-     .attr("y", 180)
+     .attr("y", 530)
      .attr("id", "viztextthree")
      .style("fill", "black")
      .style("font-family", "'Oswald', sans-serif")
@@ -135,6 +230,8 @@ class BarChart extends Component {
     	}
 
       if (arrayIndex === 0) {
+        fieldOverall = 0;
+        fieldOverall = Math.round(((parseInt(fieldData[0]) + parseInt(fieldData[1]) + parseInt(fieldData[2])) / 3) * 100) / 100;
         if (fieldData[0] < 50) {
           colorOne = redColor;
         } else {
@@ -150,7 +247,24 @@ class BarChart extends Component {
         } else {
           colorThree = greenColor;
         }
+        svg.select("#statisticsText")
+          .transition()
+          .duration(1000)
+          .attr("x", 20)
+          .attr("y", 320)
+          .style("fill", "white")
+          .text("Fielding Statistics:");
+
+        svg.select("#fieldingAverage")
+          .transition()
+          .duration(1000)
+          .attr("x", 20)
+          .attr("y", 180)
+          .style("fill", "white")
+          .text("Fielding Average:");
       } else if (arrayIndex === 1) {
+        fieldOverall = 0;
+        fieldOverall = Math.round(((parseInt(throwData[0]) + parseInt(throwData[1]) + parseInt(throwData[2])) / 3) * 100) / 100;
         if (throwData[0] < 50) {
           colorOne = redColor;
         } else {
@@ -166,7 +280,24 @@ class BarChart extends Component {
         } else {
           colorThree = greenColor;
         }
+        svg.select("#statisticsText")
+          .transition()
+          .duration(1000)
+          .attr("x", 20)
+          .attr("y", 320)
+          .style("fill", "white")
+          .text("Throwing Statistics:");
+
+        svg.select("#fieldingAverage")
+          .transition()
+          .duration(1000)
+          .attr("x", 20)
+          .attr("y", 180)
+          .style("fill", "white")
+          .text("Throwing Average:");
       } else {
+        fieldOverall = 0;
+        fieldOverall = Math.round(((parseInt(hitData[0]) + parseInt(hitData[1]) + parseInt(hitData[2])) / 3) * 100) / 100;
         if (hitData[0] < 50) {
           colorOne = redColor;
         } else {
@@ -182,16 +313,64 @@ class BarChart extends Component {
         } else {
           colorThree = greenColor;
         }
+        svg.select("#statisticsText")
+          .transition()
+          .duration(1000)
+          .attr("x", 20)
+          .attr("y", 320)
+          .style("fill", "white")
+          .text("Hitting Statistics:");
+
+        svg.select("#fieldingAverage")
+          .transition()
+          .duration(1000)
+          .attr("x", 20)
+          .attr("y", 180)
+          .style("fill", "white")
+          .text("Hitting Average:");
       }
       colorArray[0] = colorOne;
       colorArray[1] = colorTwo;
       colorArray[2] = colorThree;
 
+      overallArray[1] = fieldOverall;
+      if (overallArray[1] < 50) {
+        overallColor = redColor;
+      } else {
+        overallColor = greenColor;
+      }
+      overallColorArray[1] = overallColor;
+
+      svg.select("#averageText")
+        .transition()
+        .duration(1000)
+        .text("Average: " + overallArray[1]);
+
+      svg.selectAll("#overallRect")
+        .data(overallArray)
+        .transition()
+        .duration(1000)
+        .attr("x", 0)
+        .attr("y", (d, i) => i * 140 + 70)
+        .attr("width", (d, i) => d * 3)
+        .attr("height", 65)
+        .attr("fill", (d, i) => overallColorArray[i]);
+
+      svg.selectAll("#averageWhiteBar")
+        .data(overallArray)
+        .transition()
+        .duration(1000)
+        .attr("x", (d, i) => d * 3 - 5)
+        .attr("y", (d, i) => i * 140 + 70)
+        .attr("width", 5)
+        .attr("height", 65)
+        .attr("fill", "white");
+
       svg.select("#viztextone")
         .transition()
         .duration(1000)
         .attr("x", 20)
-        .attr("y", 40)
+        .attr("y", 390)
         .style("fill", "black")
         .text(textArray[3 * arrayIndex]);
 
@@ -199,7 +378,7 @@ class BarChart extends Component {
         .transition()
         .duration(1000)
         .attr("x", 20)
-        .attr("y", 110)
+        .attr("y", 460)
         .style("fill", "black")
         .text(textArray[3 * arrayIndex + 1]);
 
@@ -207,7 +386,7 @@ class BarChart extends Component {
         .transition()
         .duration(1000)
         .attr("x", 20)
-        .attr("y", 180)
+        .attr("y", 530)
         .style("fill", "black")
         .text(textArray[3 * arrayIndex + 2]);
 
@@ -216,7 +395,7 @@ class BarChart extends Component {
     		.transition()
     		.duration(1000)
     		.attr("x", 0)
-		    .attr("y", (d, i) => i * 70)
+		    .attr("y", (d, i) => i * 70 + 350)
 		    .attr("width", (d, i) => d * 3)
 		    .attr("height", 65)
 		    .attr("fill", (d, i) => colorArray[i]);
@@ -226,7 +405,7 @@ class BarChart extends Component {
 			.transition()
 			.duration(1000)
 			.attr("x", (d, i) => d * 3 - 5)
-		    .attr("y", (d, i) => i * 70)
+		    .attr("y", (d, i) => i * 70 + 350)
 		    .attr("width", 5)
 		    .attr("height", 65)
 		    .attr("fill", "white");

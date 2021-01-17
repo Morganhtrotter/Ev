@@ -67,30 +67,17 @@ class Results extends Component {
       <div className="container">
         <div className="col-12 col-md-9 pt-3">
           <h1>Breakdown</h1>
-          <h2>Overall: {overall}</h2>
-          <h3>Fielding Overall: {fieldingOverall}</h3>
           <div id="fieldingchart">
-            <BarChart fieldingdata={fieldingArray} throwingdata={throwingArray} hittingdata={hittingArray}/>
+            <BarChart fieldingdata={fieldingArray} throwingdata={throwingArray} hittingdata={hittingArray} overall={overall}/>
           </div>
-          <p ref="myP">Soft Hands: {fieldingFirst}</p>
-          <p>Footwork: {fieldingSecond}</p>
-          <p>Backhand: {fieldingThird}</p>
           <p>Based on your score of {fieldingOverall}, you have been placed in fielding level {fieldingLevel}.</p>
           <div>{(fieldingLevel === 1) && <Button className="mb-3" href="https://www.tadball.com/post/throwing-fundamentals-throwing-clinic-session-i-recap" color="primary">Level 1 Curriculum</Button>}</div>
           <div>{(fieldingLevel === 2) && <Button className="mb-3" href="https://www.tadball.com/" color="primary">Level 2 Curriculum</Button>}</div>
           <div>{(fieldingLevel === 3) && <Button className="mb-3" href="https://www.tadball.com/" color="primary">Level 3 Curriculum</Button>}</div>
-          <h3>Throwing Overall: {throwingOverall}</h3>
-          <p>Arm Action: {throwingFirst}</p>
-          <p>Footwork: {throwingSecond}</p>
-          <p>Balance: {throwingThird}</p>
           <p>Based on your score of {throwingOverall}, you have been placed in throwing level {throwingLevel}.</p>
           <div>{(throwingLevel === 1) && <Button className="mb-3" href="https://www.tadball.com/" color="primary">Level 1 Curriculum</Button>}</div>
           <div>{(throwingLevel === 2) && <Button className="mb-3" href="https://www.tadball.com/" color="primary">Level 2 Curriculum</Button>}</div>
           <div>{(throwingLevel === 3) && <Button className="mb-3" href="https://www.tadball.com/" color="primary">Level 3 Curriculum</Button>}</div>
-          <h3>Hitting Overall: {hittingOverall}</h3>
-          <p>Contact: {hittingFirst}</p>
-          <p>Power: {hittingSecond}</p>
-          <p>Balance: {hittingThird}</p>
           <p>Based on your score of {hittingOverall}, you have been placed in hitting level {hittingLevel}.</p>
           <div>{(hittingLevel === 1) && <Button className="mb-3" href="https://www.tadball.com/post/hitting-101" color="primary">Level 1 Curriculum</Button>}</div>
           <div>{(hittingLevel === 2) && <Button className="mb-3" href="https://www.tadball.com/" color="primary">Level 2 Curriculum</Button>}</div>
