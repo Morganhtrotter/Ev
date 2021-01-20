@@ -1,5 +1,5 @@
   
-Front-End Frameworks, Languages and Libraries used: React.js, Redux, Reactstrap, React Router DOM, React Redux Form, HTML5, CSS3, JavaScript
+Front-End Frameworks, Languages and Libraries used: React.js, Redux, Reactstrap, D3.js, React Router DOM, React Redux Form, HTML5, CSS3, JavaScript
 
 Back-End Languages and Technologies used: Node.js, Heroku, Yarn, JSON server
 
