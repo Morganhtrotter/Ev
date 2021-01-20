@@ -36,7 +36,7 @@ This is a controlled form, built using the React Redux Form library.
 
 Once the players' information is entered, choose one of the three area's to evaluate. Enter numbers between 20 and 80 for each sub-category.
 
-![Alt Text](https://github.com/Morganhtrotter/Ev/blob/master/public/assets/images/EnterNumbers.gif)
+![Alt Text](https://github.com/Morganhtrotter/Ev/blob/master/public/assets/images/dataEv.gif)
 
 Repeat for all three areas (fielding, throwing and hitting).
 
