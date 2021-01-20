@@ -42,7 +42,7 @@ Repeat for all three areas (fielding, throwing and hitting).
 
 Then view the results on the breakdown page.
 
-![Alt Text](https://github.com/Morganhtrotter/Ev/blob/master/public/assets/images/Breakdown.gif)
+![Alt Text](https://github.com/Morganhtrotter/Ev/blob/master/public/assets/images/Results.gif)
 
 As mentioned above, this project uses React/Redux to Post the players' data to a JSON server, and then subsequently Fetches that same data to be displayed on the breakdown page.
 
