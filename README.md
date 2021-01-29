@@ -3,7 +3,7 @@ Front-End Frameworks, Languages and Libraries used: React.js, Redux, D3.js, Reac
 
 Back-End Languages and Technologies used: Node.js, Heroku, Yarn, JSON server
 
-This application uses Redux Thunk, Fetch/Post and the REST API to send and retreive clients curated data with a JSON server. Both of the forms for player information and individual skill assessment implement the Form, Errors and Control classes of the React Redux Form library as well as unique validators to create controlled forms. This site also uses the Col and Row Reactstrap classes to optimize use of the application for mobile.
+This application uses Redux Thunk, Fetch/Post and the REST API to send and retreive clients curated data with a JSON server. Both of the forms for player information and individual skill assessment implement the Form, Errors and Control classes of the React Redux Form library as well as unique validators to create controlled forms. This site also uses the Col and Row Reactstrap classes to optimize use of the application for mobile. However it works just as well on desktop.
 
 What is this?
 
