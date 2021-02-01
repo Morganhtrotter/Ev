@@ -5,6 +5,7 @@ import './App.css';
 import { Provider } from 'react-redux';
 import { ConfigureStore } from './redux/configureStore.js';
 import * as d3 from "d3";
+import{ init } from 'emailjs-com';
 
 const store = ConfigureStore();
 

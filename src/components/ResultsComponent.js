@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import BarChart from './BarChart.js';
+import ContactUs from './ContactUs.js';
 
 class Results extends Component {
   render() {
@@ -82,6 +83,7 @@ class Results extends Component {
           <div>{(hittingLevel === 1) && <Button className="mb-3" href="https://www.tadball.com/post/hitting-101" color="primary">Level 1 Curriculum</Button>}</div>
           <div>{(hittingLevel === 2) && <Button className="mb-3" href="https://www.tadball.com/" color="primary">Level 2 Curriculum</Button>}</div>
           <div>{(hittingLevel === 3) && <Button className="mb-3" href="https://www.tadball.com/" color="primary">Level 3 Curriculum</Button>}</div>
+          <ContactUs />
         </div>
       </div>
     );
