@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import BarChart from './BarChart.js';
 import ContactUs from './ContactUs.js';
+import emailjs from 'emailjs-com';
 
 class Results extends Component {
   render() {
@@ -58,11 +59,23 @@ class Results extends Component {
       }
       overall = Math.round(((fieldingOverall + throwingOverall + hittingOverall) / 3) * 100) / 100;
     }
-
-    console.log(this.props.playerInfo);
+    console.log(fieldingFirst);
     const fieldingArray = [fieldingFirst, fieldingSecond, fieldingThird];
     const throwingArray = [throwingFirst, throwingSecond, throwingThird];
     const hittingArray = [hittingFirst, hittingSecond, hittingThird];
+
+    function sendEmail(e) {
+      e.preventDefault();
+
+      emailjs.sendForm('service_uoxbo6m', 'template_arpnkvi', e.target, 'user_q6DaYgZSgQhSV6M8rqacG')
+        .then((result) => {
+            console.log(result.text);
+            alert("Email Successfully Sent!");
+        }, (error) => {
+            console.log(error.text);
+            alert("Error Sending Email: " + error.text);
+        });
+    }
 
     return(
       <div className="container">
@@ -83,7 +96,21 @@ class Results extends Component {
           <div>{(hittingLevel === 1) && <Button className="mb-3" href="https://www.tadball.com/post/hitting-101" color="primary">Level 1 Curriculum</Button>}</div>
           <div>{(hittingLevel === 2) && <Button className="mb-3" href="https://www.tadball.com/" color="primary">Level 2 Curriculum</Button>}</div>
           <div>{(hittingLevel === 3) && <Button className="mb-3" href="https://www.tadball.com/" color="primary">Level 3 Curriculum</Button>}</div>
-          <ContactUs />
+          <form className="contact-form" onSubmit={sendEmail}>
+            <label>Name</label>
+            <input type="text" name="to_name" />
+            <br />
+            <label>Email</label>
+            <input type="email" name="user_email" />
+            <br />
+            <label>Message</label>
+            <textarea name="message" />
+            <br />
+            <input type="hidden" name="fielding_one" value={fieldingFirst} />
+            <input type="hidden" name="throwing_one" value={throwingFirst} />
+            <input type="hidden" name="hitting_one" value={hittingFirst} />
+            <input type="submit" value="Send" />
+          </form>
         </div>
       </div>
     );

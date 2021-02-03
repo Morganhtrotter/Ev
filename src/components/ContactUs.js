@@ -9,8 +9,10 @@ export default function ContactUs() {
     emailjs.sendForm('service_uoxbo6m', 'template_arpnkvi', e.target, 'user_q6DaYgZSgQhSV6M8rqacG')
       .then((result) => {
           console.log(result.text);
+          alert("Email Successfully Sent!");
       }, (error) => {
           console.log(error.text);
+          alert("Error Sending Email: " + error.text);
       });
   }
 
@@ -19,10 +21,13 @@ export default function ContactUs() {
       <input type="hidden" name="contact_number" />
       <label>Name</label>
       <input type="text" name="to_name" />
+      <br />
       <label>Email</label>
       <input type="email" name="user_email" />
+      <br />
       <label>Message</label>
       <textarea name="message" />
+      <br />
       <input type="submit" value="Send" />
     </form>
   );
