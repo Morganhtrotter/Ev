@@ -67,7 +67,7 @@ class Results extends Component {
     function sendEmail(e) {
       e.preventDefault();
 
-      emailjs.sendForm('service_uoxbo6m', 'template_arpnkvi', e.target, 'user_q6DaYgZSgQhSV6M8rqacG')
+      emailjs.sendForm('service_ulvd2ht', 'template_arpnkvi', e.target, 'user_q6DaYgZSgQhSV6M8rqacG')
         .then((result) => {
             console.log(result.text);
             alert("Email Successfully Sent!");

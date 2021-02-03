@@ -23,7 +23,7 @@ class Hitting extends Component {
 		return(
 			<div className="container">
 	            <div className="col-12 col-md-9 pt-3">
-	                <h4>Fielding Evaluation</h4>
+	                <h4>Hitting Evaluation</h4>
 	                <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
 	                    <Row className="form-group">
 	                        <Label htmlFor="contact" md={2}>Fundamentals</Label>
