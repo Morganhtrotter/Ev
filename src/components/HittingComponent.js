@@ -26,7 +26,7 @@ class Hitting extends Component {
 	                <h4>Fielding Evaluation</h4>
 	                <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
 	                    <Row className="form-group">
-	                        <Label htmlFor="contact" md={2}>Contact</Label>
+	                        <Label htmlFor="contact" md={2}>Fundamentals</Label>
 	                        <Col md={10}>
 	                            <Control.text model=".contact" id="contact" name="contact"
 	                                placeholder="20-80"

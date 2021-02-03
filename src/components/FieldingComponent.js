@@ -26,7 +26,7 @@ class Fielding extends Component {
 	                <h4>Fielding Evaluation</h4>
 	                <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
 	                    <Row className="form-group">
-	                        <Label htmlFor="softhands" md={2}>Soft Hands</Label>
+	                        <Label htmlFor="softhands" md={2}>Fundamentals</Label>
 	                        <Col md={10}>
 	                            <Control.text model=".softhands" id="softhands" name="softhands"
 	                                placeholder="20-80"

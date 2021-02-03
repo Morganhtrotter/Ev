@@ -58,9 +58,9 @@ class BarChart extends Component {
     }
 
     const dataArray = [fieldData, throwData, hitData];
-    const textArray = ["Soft Hands: " + fieldData[0].toString(), "Footwork: " + fieldData[1].toString(), "Backhand: " + fieldData[2].toString(),
-        "Arm Action: " + throwData[0].toString(), "Footwork: " + throwData[1].toString(), "Balance: " + throwData[2].toString(),
-        "Contact: " + hitData[0].toString(), "Power: " + hitData[1].toString(),  "Balance: " + hitData[2].toString()];
+    const textArray = ["Fundamentals: " + fieldData[0].toString(), "Footwork: " + fieldData[1].toString(), "Backhand: " + fieldData[2].toString(),
+        "Fundamentals: " + throwData[0].toString(), "Footwork: " + throwData[1].toString(), "Balance: " + throwData[2].toString(),
+        "Fundamentals: " + hitData[0].toString(), "Power: " + hitData[1].toString(),  "Balance: " + hitData[2].toString()];
     var arrayIndex = 1;
     if (this.props.overall >= 50) {
       overallColorArray[0] = greenColor;
@@ -109,7 +109,7 @@ class BarChart extends Component {
       .append("rect")
       .attr("x", 10)
       .attr("y", (d, i) => i * 70 + 365)
-      .attr("width", 120)
+      .attr("width", 130)
       .attr("height", 35)
       .attr("id", "graytextbar")
       .style("fill", "white")
@@ -154,7 +154,7 @@ class BarChart extends Component {
       .append("rect")
       .attr("x", 10)
       .attr("y", (d, i) => i * 140 + 85)
-      .attr("width", 120)
+      .attr("width", 130)
       .attr("height", 35)
       .attr("id", "graytextbar")
       .style("fill", "white")
@@ -206,7 +206,7 @@ class BarChart extends Component {
      .attr("id", "viztextone")
 	   .style("fill", "black")
      .style("font-family", "'Oswald', sans-serif")
-	   .text("Soft Hands: " + fieldData[0]);
+	   .text("Fundamentals: " + fieldData[0]);
 
     svg.append("text")
      .attr("x", 20)

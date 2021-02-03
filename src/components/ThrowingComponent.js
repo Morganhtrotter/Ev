@@ -26,7 +26,7 @@ class Throwing extends Component {
 	                <h4>Throwing Evaluation</h4>
 	                <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
 	                    <Row className="form-group">
-	                        <Label htmlFor="armaction" md={2}>Arm Action</Label>
+	                        <Label htmlFor="armaction" md={2}>Fundamentals</Label>
 	                        <Col md={10}>
 	                            <Control.text model=".armaction" id="armaction" name="armaction"
 	                                placeholder="20-80"
