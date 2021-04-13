@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Label, Col, Row, Button } from 'reactstrap';
-import { Control, Form, Errors } from 'react-redux-form';
+import { Control, LocalForm, Errors } from 'react-redux-form';
 import { Link } from 'react-router-dom';
 
 const required = (val) => val && val.length;
@@ -25,7 +25,7 @@ class About extends Component {
         <div className="container">
             <div className="col-12 col-md-9 pt-3">
                 <h4>Player Information</h4>
-                <Form model="feedback" onSubmit={(values) => this.handleSubmit(values)}>
+                <LocalForm model="feedback" onSubmit={(values) => this.handleSubmit(values)}>
                     <Row className="form-group">
                         <Label htmlFor="firstname" md={2}>First Name</Label>
                         <Col md={10}>
@@ -209,7 +209,7 @@ class About extends Component {
                             </Link>
                         </Col>
                     </Row>
-                </Form>
+                </LocalForm>
             </div>
         </div>
     );
